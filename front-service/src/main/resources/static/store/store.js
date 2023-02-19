@@ -29,6 +29,15 @@ angular.module('market-front').controller('storeController', function ($scope, $
         $http.get('http://localhost:5555/cart/api/v1/cart/' + $localStorage.springWebGuestCartId + '/add/' + productId)
             .then(function (response) {
             });
+
+        $http({
+             url: 'http://localhost:5555/analytics/api/v1/analytics/addToTopProducts',
+             method: 'POST',
+             params: {
+                productId: productId
+              }
+        }).then(function (response) {
+                  });
     }
 
     $scope.loadProducts();

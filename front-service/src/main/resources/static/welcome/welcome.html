@@ -1,4 +1,22 @@
 <div>
     <p></p>
     <h1>WEB MARKET</h1>
+    <h2  ng-show="Top5Products.length>0">TOP-5 добавляемых в корзину товаров</h2>
+    <table class="table table-hover" ng-show="Top5Products.length > 0">
+        <tr>
+            <td>ID</td>
+            <td>Наименование</td>
+            <td>Стоимость</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="product in Top5Products">
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <button class="btn btn-primary" ng-click="clearTop5()" ng-show="Top5Products.length > 0">Очистить список</button>
+
 </div>
